@@ -38,19 +38,16 @@ async function scrapeShoobCards() {
 
 	// Launch browser with additional options to bypass some anti-scraping measures
 	const browser = await puppeteer.launch({
-		headless: true, // Use new headless mode for better compatibility
-		args: [
-			'--no-sandbox',
-			'--disable-setuid-sandbox',
-			'--disable-dev-shm-usage',
-			'--disable-accelerated-2d-canvas',
-			'--no-first-run',
-			'--no-zygote',
-			'--disable-gpu',
-			'--window-size=1920,1080',
-			'--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-		],
-	});
+  headless: true,
+  executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
+  args: [
+    "--no-sandbox",
+    "--disable-setuid-sandbox",
+    "--disable-dev-shm-usage",
+    "--disable-gpu",
+    "--single-process"
+  ]
+});
 
 	// Create a new page with increased timeouts
 	const page = await browser.newPage();
