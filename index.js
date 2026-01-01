@@ -135,7 +135,7 @@ async function scrapeShoobCards() {
 
 		// Calculate pages (25 cards per page based on your screenshot)
 		const cardsPerPage = 25;
-		const totalPages = Math.ceil(totalCards / cardsPerPage) ||2268;
+		const totalPages = Math.ceil(totalCards / cardsPerPage) ||10;
 		console.log(
 			`Found approximately ${totalCards} total cards across ${totalPages} pages`
 		);
@@ -147,7 +147,7 @@ async function scrapeShoobCards() {
 		const allCards = [];
 
 		// Loop through pages
-		for (let pageNum = 1291; pageNum <= pagesToScrape; pageNum++) {
+		for (let pageNum = 1; pageNum <= pagesToScrape; pageNum++) {
 			console.log(`Scraping page ${pageNum}/${pagesToScrape}...`);
 
 			// Navigate to specific page using pagination number
